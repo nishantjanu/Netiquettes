@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netiquette: Digital Manifesto 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Font Imports */
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syncopate:wght@400;700&family=Inter:wght@300;400;600;900&display=swap');
+
+        :root {
+            --bg-color: #111111;
+            --text-color: #f4f4f5;
+            --accent-lime: #a3e635;
+            --accent-pink: #ec4899;
+            --accent-cyan: #22d3ee;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .font-display { font-family: 'Syncopate', sans-serif; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+        /* Noise Overlay */
+        .noise {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        /* Utilities */
+        .slide {
+            position: absolute;
+            inset: 0;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+            pointer-events: all;
+            z-index: 10;
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+
+        .brutal-border {
+            border: 2px solid rgba(255,255,255,0.2);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .brutal-border:hover {
+            border-color: var(--accent-lime);
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .sticker {
+            transform: rotate(-2deg);
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.8);
+        }
+
+        /* Marquee Animation */
+        .marquee-container {
+            position: absolute;
+            top: 2rem;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            transform: rotate(-2deg);
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .marquee-content {
+            display: flex;
+            white-space: nowrap;
+            animation: scroll 20s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Chart Animation */
+        .bar-fill {
+            width: 0%;
+            transition: width 1.5s ease-out;
+        }
+        .active .bar-fill {
+            width: var(--percent);
+        }
+        
+        /* Scrollbar for overflow text */
+        .overflow-y-auto::-webkit-scrollbar {
+            width: 6px;
+        }
+        .overflow-y-auto::-webkit-scrollbar-track {
+            background: #111;
+        }
+        .overflow-y-auto::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 3px;
+        }
+        .overflow-y-auto::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-lime);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="noise"></div>
+
+    <!-- Decorative Corner Markers -->
+    <div class="fixed top-6 left-6 w-4 h-4 border-t-2 border-l-2 border-lime-400 z-50"></div>
+    <div class="fixed top-6 right-6 w-4 h-4 border-t-2 border-r-2 border-lime-400 z-50"></div>
+    <div class="fixed bottom-6 left-6 w-4 h-4 border-b-2 border-l-2 border-lime-400 z-50"></div>
+    <div class="fixed bottom-6 right-6 w-4 h-4 border-b-2 border-r-2 border-lime-400 z-50"></div>
+
+    <!-- Background Marquee -->
+    <div class="marquee-container">
+        <div class="marquee-content font-display text-8xl font-bold uppercase">
+            Digital Empowerment — 2025 — Netiquette — Digital Empowerment — 2025 — Netiquette —
+        </div>
+    </div>
+
+    <!-- MAIN CONTAINER -->
+    <main id="presentation-container" class="relative w-full h-screen max-w-7xl mx-auto">
+        
+        <!-- SLIDE 1: Title -->
+        <div class="slide active" id="slide-0">
+            <div class="max-w-4xl z-10">
+                <div class="inline-block bg-lime-400 text-black font-mono font-bold px-4 py-1 mb-6 sticker">
+                    GROUP PROJECT_v.1.0
+                </div>
+                <h1 class="text-8xl md:text-9xl font-black leading-[0.8] mb-8 mix-blend-exclusion tracking-tighter">
+                    NET<br>IQU<br>ETTE
+                </h1>
+                <div class="bg-zinc-900/90 border-l-4 border-pink-500 p-8 max-w-xl backdrop-blur-sm">
+                    <h2 class="text-2xl font-bold uppercase mb-2">Digital Empowerment in the Academic Age</h2>
+                    <p class="font-mono text-zinc-400 text-sm leading-relaxed">
+                        A comprehensive analysis of digital behavioral norms, the psychology of online aggression, and the ethics of professional communication in a hyper-connected world.
+                    </p>
+                </div>
+            </div>
+            <i data-lucide="network" class="absolute bottom-0 right-0 w-[400px] h-[400px] text-zinc-800 -z-10 opacity-50"></i>
+        </div>
+
+        <!-- SLIDE 2: Definition -->
+        <div class="slide" id="slide-1">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-lime-400 to-green-600 font-display">01</span>
+                <h2 class="text-4xl font-bold uppercase tracking-tighter">The Definition</h2>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="bg-black border-2 border-white p-8 relative">
+                    <div class="absolute -top-3 -right-3 w-full h-full border-2 border-pink-500 -z-10"></div>
+                    <div class="flex justify-between border-b border-zinc-800 pb-4 mb-6">
+                        <span class="font-mono text-lime-400">ETYMOLOGY_1995.LOG</span>
+                        <i data-lucide="terminal" class="w-5 h-5"></i>
+                    </div>
+                    <div class="text-3xl font-bold font-mono">
+                        <span class="text-pink-500">NET</span>WORK + <br>ETI<span class="text-pink-500">QUETTE</span>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center">
+                    <p class="text-2xl font-light leading-relaxed border-l-4 border-lime-400 pl-6 mb-6">
+                        "The set of professional and social rules for acceptable behavior on the internet."
+                    </p>
+                    <p class="text-zinc-400 font-mono text-sm leading-relaxed">
+                        Originally coined by Intel in 1995 to manage server bandwidth, it has evolved into a complex social contract. It is the unspoken code that governs how we interact with "unknown" people in digital spaces where traditional social cues are absent.
+                        <span class="block mt-4 text-xs font-bold text-zinc-500 uppercase tracking-widest">— Source: Soler-Costa et al. (2021)</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 3: Deconstructing Netiquette -->
+        <div class="slide" id="slide-2">
+            <div class="flex items-center gap-4 mb-8">
+                <h2 class="text-4xl font-black uppercase tracking-tighter">Deconstructing <span class="text-cyan-400">Netiquette</span></h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 h-full max-h-[70vh]">
+                <!-- Card 1 -->
+                <div class="bg-zinc-900 border border-zinc-700 p-6 flex flex-col group hover:border-lime-400 transition-colors h-full">
+                    <div class="mb-4 text-lime-400"><i data-lucide="layers" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold uppercase mb-3 text-white">Not Just Manners</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4 flex-grow">
+                        Netiquette is often mistaken for simple politeness, like saying "please" or "thank you." However, it is fundamentally a <strong>protocol for efficiency</strong>. In a digital environment constrained by bandwidth and screen size, clarity is power. Netiquette governs technical aspects like keeping emails concise, using proper subject lines, respecting time zones, and avoiding large attachments. It prevents the digital noise that hampers productivity and ensures that the core message is not lost in translation or poor formatting.
+                    </p>
+                    <div class="mt-auto border-t border-zinc-800 pt-4">
+                        <p class="text-zinc-500 text-xs font-mono uppercase tracking-widest">Core Function: Efficiency</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-zinc-900 border border-zinc-700 p-6 flex flex-col group hover:border-pink-500 transition-colors h-full">
+                    <div class="mb-4 text-pink-500"><i data-lucide="users" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold uppercase mb-3 text-white">The Human Variable</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4 flex-grow">
+                        The core challenge of the internet is the <strong>"Online Disinhibition Effect."</strong> Without a face to look at, empathy drops significantly. Users often forget there is a human with feelings on the other side of the screen. Netiquette acts as an artificial psychological structure to remind users of the human cost of their digital actions. It bridges the gap between avatar and person, forcing us to pause and consider the recipient's emotional state before hitting send, thus preventing accidental cruelty.
+                    </p>
+                    <div class="mt-auto border-t border-zinc-800 pt-4">
+                        <p class="text-zinc-500 text-xs font-mono uppercase tracking-widest">Core Function: Empathy</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-zinc-900 border border-zinc-700 p-6 flex flex-col group hover:border-cyan-400 transition-colors h-full">
+                    <div class="mb-4 text-cyan-400"><i data-lucide="lock" class="w-10 h-10"></i></div>
+                    <h3 class="text-xl font-bold uppercase mb-3 text-white">Contextual Ethics</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed mb-4 flex-grow">
+                        Rules are not static; they are fluid based on the platform. The behavior acceptable on Reddit (anonymity, debate, slang) is toxic on LinkedIn (professional identity, career focus). Netiquette is the high-level skill of <strong>reading the room</strong> digitally. It requires adapting your persona to fit the specific norms of that community to avoid social exclusion. It demands high emotional intelligence to navigate different digital ecosystems seamlessly without causing offense.
+                    </p>
+                    <div class="mt-auto border-t border-zinc-800 pt-4">
+                        <p class="text-zinc-500 text-xs font-mono uppercase tracking-widest">Core Function: Context</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Cyborg Concept -->
+        <div class="slide" id="slide-3">
+            <h2 class="text-center text-5xl font-black uppercase mb-16">The <span class="text-lime-400 underline decoration-pink-500">Cyborg</span> Paradox</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="brutal-border bg-zinc-900 p-8">
+                    <i data-lucide="user-check" class="w-8 h-8 text-lime-400 mb-4"></i>
+                    <h3 class="font-black text-xl uppercase mb-3">The Shift</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        According to the <em>IOSR Journal of Engineering</em>, humans are no longer divorced from technology. We are effectively <span class="text-white font-bold">Cyborgs</span> — permanently connected to the grid. Our digital actions now have real-world consequences (firing, legal action, reputation damage), blurring the line between "online" and "offline." We cannot treat digital interactions as "fake" anymore.
+                    </p>
+                </div>
+                <div class="brutal-border bg-zinc-900 p-8">
+                    <i data-lucide="alert-triangle" class="w-8 h-8 text-pink-500 mb-4"></i>
+                    <h3 class="font-black text-xl uppercase mb-3">The Problem</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        The internet expands the vistas of the human mind, giving us access to infinite information. However, research suggests it often <span class="text-pink-500 font-bold">narrows the heart's empathy</span>. The speed of communication encourages reactive, emotional responses rather than thoughtful, empathetic ones. We type faster than we feel, leading to accidental cruelty.
+                    </p>
+                </div>
+                <div class="brutal-border bg-zinc-900 p-8">
+                    <i data-lucide="heart" class="w-8 h-8 text-cyan-400 mb-4"></i>
+                    <h3 class="font-black text-xl uppercase mb-3">The Fix</h3>
+                    <p class="text-zinc-400 text-sm leading-relaxed">
+                        Netiquette is the necessary bridge. It is not just about manners; it is the tool we use to preserve <span class="border-b-2 border-lime-400">humanity</span> in a digital interface. It forces us to pause and consider the human recipient before hitting "Send," counteracting the dehumanizing effect of screens and anonymous interfaces.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Objectives -->
+        <div class="slide" id="slide-4">
+            <div class="flex flex-col h-full justify-center">
+              <div class="flex items-baseline gap-4 mb-8">
+                 <span class="bg-lime-400 text-black font-black px-3 py-1 text-xl">02</span>
+                 <h2 class="text-4xl font-bold uppercase">Study Goals</h2>
+              </div>
+              
+              <div class="space-y-6 max-w-4xl">
+                <div class="flex group bg-zinc-900 p-6 border-l-4 border-zinc-700 hover:border-lime-400 transition-colors">
+                  <div class="mr-6 flex flex-col items-center justify-center">
+                    <i data-lucide="bar-chart-2" class="w-8 h-8 text-zinc-500 group-hover:text-lime-400 transition-colors"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-lime-400 transition-colors">ANALYZE</h3>
+                    <p class="text-zinc-400 font-mono text-sm leading-relaxed">
+                        We aim to investigate the statistical correlations between parental supervision methods (specifically location of device) and the frequency of online aggression in adolescents. This involves analyzing data from Law et al. (2010) to determine if strict control works better than open monitoring, and how "bedroom access" specifically alters behavior patterns.
+                    </p>
+                  </div>
+                </div>
+                
+                <div class="flex group bg-zinc-900 p-6 border-l-4 border-zinc-700 hover:border-pink-500 transition-colors">
+                  <div class="mr-6 flex flex-col items-center justify-center">
+                    <i data-lucide="brain" class="w-8 h-8 text-zinc-500 group-hover:text-pink-500 transition-colors"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-pink-500 transition-colors">EVALUATE</h3>
+                    <p class="text-zinc-400 font-mono text-sm leading-relaxed">
+                        We will evaluate the "Knowledge-Application Gap" found in university students (Jordan Study). Why do students who score high on knowing netiquette rules still fail to apply them in real-world scenarios? We explore the lack of critical thinking training in digital curriculums and why theoretical knowledge doesn't always translate to behavioral change.
+                    </p>
+                  </div>
+                </div>
+    
+                <div class="flex group bg-zinc-900 p-6 border-l-4 border-zinc-700 hover:border-cyan-400 transition-colors">
+                  <div class="mr-6 flex flex-col items-center justify-center">
+                    <i data-lucide="zap" class="w-8 h-8 text-zinc-500 group-hover:text-cyan-400 transition-colors"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">EMPOWER</h3>
+                    <p class="text-zinc-400 font-mono text-sm leading-relaxed">
+                        Finally, we aim to provide actionable strategies for professional success. This includes specific email protocols (BCC usage, subject line clarity) and behavioral guidelines to help students navigate the transition from casual social media use to professional corporate communication, ensuring their digital footprint helps rather than hurts their career.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Why We Need It -->
+        <div class="slide" id="slide-5">
+            <h2 class="text-6xl font-black uppercase mb-12">Why <span class="text-stroke">Bother?</span></h2>
+            <div class="space-y-6 max-w-5xl">
+                <div class="flex items-start gap-6 bg-zinc-900 p-6 border-l-8 border-red-500 hover:bg-zinc-800 transition-colors">
+                    <i data-lucide="flame" class="w-10 h-10 text-red-500 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold uppercase text-red-500 mb-2">Stop "Flame Wars"</h3>
+                        <p class="font-mono text-zinc-400 text-sm leading-relaxed">
+                            Without rules, online disagreements quickly escalate into "Flame Wars"—heated, aggressive personal attacks that derail constructive conversation. These often occur in group chats or forums where users feel protected by anonymity. Netiquette provides the de-escalation protocols needed to keep debates civil and focused on facts rather than insults, preventing communities from becoming toxic wastelands.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6 bg-zinc-900 p-6 border-l-8 border-lime-400 hover:bg-zinc-800 transition-colors">
+                    <i data-lucide="eye" class="w-10 h-10 text-lime-400 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold uppercase text-lime-400 mb-2">Replace Body Language</h3>
+                        <p class="font-mono text-zinc-400 text-sm leading-relaxed">
+                            In face-to-face communication, 70-90% of meaning is conveyed through tone, facial expressions, and gestures. Text strips all of this away. Sarcasm becomes insult; brevity becomes rudeness. Netiquette provides the "missing context" cues (like using emojis carefully, clear punctuation, or explicit politeness markers) to prevent disastrous misunderstandings that arise from "tone-deaf" text.
+                        </p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-6 bg-zinc-900 p-6 border-l-8 border-cyan-400 hover:bg-zinc-800 transition-colors">
+                    <i data-lucide="globe" class="w-10 h-10 text-cyan-400 flex-shrink-0 mt-1"></i>
+                    <div>
+                        <h3 class="text-xl font-bold uppercase text-cyan-400 mb-2">Digital Citizenship</h3>
+                        <p class="font-mono text-zinc-400 text-sm leading-relaxed">
+                            The internet is often described as a "Wild West." To transform it into a productive space for collaboration and learning, we need Digital Citizenship. This means understanding that your digital footprint is permanent and that you have a responsibility to report toxicity, respect privacy, and contribute positively to the collective knowledge pool rather than polluting it with hate speech or misinformation.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Global Research -->
+        <div class="slide" id="slide-6">
+            <div class="flex justify-between items-end border-b-2 border-white pb-4 mb-4">
+                <h2 class="text-4xl font-black uppercase">Global Data</h2>
+                <span class="font-mono text-lime-400">SOURCE: SOLER-COSTA (2021)</span>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 h-full pb-12">
+                <!-- Korea -->
+                <div class="bg-zinc-900 p-6 flex flex-col gap-6 border border-zinc-700 hover:border-pink-500 transition-all">
+                    <div>
+                        <div class="flex justify-between items-start mb-2 border-b border-zinc-800 pb-2 h-16">
+                            <h3 class="text-5xl font-black text-zinc-700">KR</h3>
+                            <p class="text-right font-bold text-white leading-none">South<br>Korea</p>
+                        </div>
+                        <p class="font-mono text-xs text-pink-500">SAMPLE: 1,200 TEENAGERS</p>
+                    </div>
+                    <div class="flex flex-col h-full">
+                        <p class="text-lg font-bold text-white mb-2">Finding: Time vs. Risk</p>
+                        <p class="text-lg text-zinc-400 leading-relaxed flex-grow">
+                            This extensive survey revealed a statistically significant correlation between frequency of internet use and victimization. The data indicates that the more time spent on social networks, the higher the probability of becoming a victim or witness of cyberbullying. Mere exposure without guidance increases risk significantly.
+                        </p>
+                        <p class="text-lg text-zinc-400 leading-relaxed mt-4">
+                            <span class="text-white font-semibold">Implication:</span> Preventive measures must aggressively target "heavy users" with specific educational interventions.
+                        </p>
+                    </div>
+                </div>
+                <!-- Jordan -->
+                <div class="bg-zinc-900 p-6 flex flex-col gap-6 border border-zinc-700 hover:border-lime-400 transition-all">
+                    <div>
+                        <div class="flex justify-between items-start mb-2 border-b border-zinc-800 pb-2 h-16">
+                            <h3 class="text-5xl font-black text-zinc-700">JO</h3>
+                            <p class="text-right font-bold text-white leading-none">Jordan<br>&nbsp;</p>
+                        </div>
+                        <p class="font-mono text-xs text-lime-400">SAMPLE: 245 UNI STUDENTS</p>
+                    </div>
+                    <div class="flex flex-col h-full">
+                        <p class="text-lg font-bold text-white mb-2">Finding: The Critical Gap</p>
+                        <p class="text-lg text-zinc-400 leading-relaxed flex-grow">
+                            While students could list netiquette rules (high theoretical knowledge), they failed to apply them in complex scenarios (low critical thinking). They knew the concept of "don't bully," but couldn't identify subtle forms of aggression in practice. This highlights a failure in current pedagogical approaches.
+                        </p>
+                        <p class="text-lg text-zinc-400 leading-relaxed mt-4">
+                            <span class="text-white font-semibold">Implication:</span> Education must move beyond rote memorization to scenario-based critical training.
+                        </p>
+                    </div>
+                </div>
+                <!-- Belgium -->
+                <div class="bg-zinc-900 p-6 flex flex-col gap-6 border border-zinc-700 hover:border-cyan-400 transition-all">
+                    <div>
+                        <div class="flex justify-between items-start mb-2 border-b border-zinc-800 pb-2 h-16">
+                            <h3 class="text-5xl font-black text-zinc-700">BE</h3>
+                            <p class="text-right font-bold text-white leading-none">Belgium<br>&nbsp;</p>
+                        </div>
+                        <p class="font-mono text-xs text-cyan-400">SAMPLE: 112 GRAD STUDENTS</p>
+                    </div>
+                    <div class="flex flex-col h-full">
+                        <p class="text-lg font-bold text-white mb-2">Finding: Explicit Training</p>
+                        <p class="text-lg text-zinc-400 leading-relaxed flex-grow">
+                            The study compared groups who received netiquette guidelines before a course vs. those who didn't. The group with explicit guidelines showed significantly higher quality in online discussions, academic formality, and constructive peer interaction. This proves that rules must be stated upfront.
+                        </p>
+                        <p class="text-lg text-zinc-400 leading-relaxed mt-4">
+                            <span class="text-white font-semibold">Implication:</span> Netiquette guidelines cannot be assumed; they must be explicitly taught at the start.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Case Study Adolescents -->
+        <div class="slide" id="slide-7">
+            <div class="flex gap-4 mb-4">
+                <span class="bg-red-500 text-black font-bold px-2 sticker">WARNING</span>
+                <span class="bg-yellow-400 text-black font-bold px-2 sticker">CASE STUDY</span>
+            </div>
+            <h2 class="text-5xl font-black uppercase mb-8">Location <span class="text-zinc-600">vs</span> Behavior</h2>
+            <div class="grid md:grid-cols-2 gap-12 border-t-2 border-zinc-800 pt-8">
+                <div>
+                    <p class="font-mono text-lime-400 mb-4">LAW ET AL. (2010) — "TO CONTROL OR NOT TO CONTROL?"</p>
+                    <p class="text-lg leading-relaxed text-zinc-300 mb-6">
+                        This landmark study investigated the relationship between <strong>parental monitoring</strong> and <strong>online aggression</strong>. The researchers hypothesized that access to the internet was the danger, but the data proved otherwise.
+                    </p>
+                    <p class="text-lg leading-relaxed text-white border-l-4 border-red-500 pl-6">
+                        The key predictor was not how <em>much</em> they used the internet, but <em>where</em> the computer was located. Adolescents with computers in their bedrooms (low supervision) were significantly more likely to engage in hostile behavior like flaming or building hate sites.
+                    </p>
+                </div>
+                <div class="bg-zinc-900 p-8 border border-zinc-700">
+                    <h3 class="font-bold text-white mb-6 uppercase text-sm tracking-widest">Aggressive Behavior Rate</h3>
+                    
+                    <div class="mb-8">
+                        <div class="flex justify-between text-sm font-mono text-zinc-400 mb-2">
+                            <span>Computer in Bedroom (Low Supervision)</span>
+                            <span class="text-red-500 font-bold">78% Risk</span>
+                        </div>
+                        <div class="w-full bg-zinc-800 h-8 border border-zinc-600">
+                            <div class="bar-fill h-full bg-red-500 relative" style="--percent: 78%">
+                                <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, #000 0, #000 2px, transparent 0, transparent 50%); background-size: 10px 10px;"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-zinc-500 mt-2">Higher likelihood of engaging in risky, hostile, or anti-social behaviors due to perceived anonymity.</p>
+                    </div>
+
+                    <div>
+                        <div class="flex justify-between text-sm font-mono text-zinc-400 mb-2">
+                            <span>Computer in Common Room</span>
+                            <span class="text-lime-500 font-bold">32% Risk</span>
+                        </div>
+                        <div class="w-full bg-zinc-800 h-8 border border-zinc-600">
+                            <div class="bar-fill h-full bg-lime-500 relative" style="--percent: 32%">
+                                <div class="absolute inset-0 opacity-20" style="background-image: repeating-linear-gradient(45deg, #000 0, #000 2px, transparent 0, transparent 50%); background-size: 10px 10px;"></div>
+                            </div>
+                        </div>
+                        <p class="text-xs text-zinc-500 mt-2">Presence of authority figures acts as a natural deterrent to toxic behavior.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: The Gap -->
+        <div class="slide" id="slide-8">
+            <div class="text-center max-w-5xl mx-auto">
+                <h2 class="text-6xl font-black uppercase mb-8">The Gap</h2>
+                <div class="bg-zinc-900 p-8 border border-zinc-700 text-left mb-12">
+                    <p class="text-lg text-zinc-300 leading-relaxed">
+                        A critical finding in the Soler-Costa review (Jordan Study) was the disconnect between <strong>self-perception</strong> and <strong>reality</strong>. University students consistently rated themselves as "Highly Knowledgeable" about internet rules. They knew they shouldn't be rude. However, when tested on applying these rules in ambiguous or emotional situations, they failed.
+                        <br><br>
+                        This suggests that knowing the definition of netiquette is easy, but possessing the <strong>critical thinking</strong> to apply it when angry or anonymous is difficult.
+                    </p>
+                </div>
+                
+                <div class="flex justify-center items-end h-64 gap-16 md:gap-32">
+                    <div class="w-40 bg-zinc-800 h-full relative group flex items-end">
+                        <div class="w-full bg-blue-600 h-[85%] relative flex justify-center transition-all duration-500 group-hover:bg-blue-500">
+                            <span class="absolute -top-10 text-2xl font-black text-blue-500">HIGH</span>
+                        </div>
+                        <span class="absolute -bottom-16 w-full text-center text-sm font-bold uppercase text-zinc-400">Self-Rated<br>Knowledge</span>
+                    </div>
+
+                    <div class="text-4xl font-black text-zinc-600 self-center mb-8">VS</div>
+
+                    <div class="w-40 bg-zinc-800 h-full relative group flex items-end">
+                        <div class="w-full bg-red-600 h-[40%] relative flex justify-center transition-all duration-500 group-hover:bg-red-500">
+                            <span class="absolute -top-10 text-2xl font-black text-red-500">LOW</span>
+                        </div>
+                        <span class="absolute -bottom-16 w-full text-center text-sm font-bold uppercase text-zinc-400">Actual<br>Application</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: Status Quo (Fix: Expanded Content) -->
+        <div class="slide" id="slide-9">
+            <h2 class="text-5xl font-black uppercase mb-12">Status Quo</h2>
+            <div class="grid md:grid-cols-2 gap-8 h-full max-h-[70vh] overflow-y-auto">
+                <!-- Legal -->
+                <div class="bg-zinc-900 text-white p-8 relative overflow-hidden flex flex-col border-2 border-lime-400">
+                    <span class="absolute -right-4 -bottom-8 text-[12rem] font-black text-zinc-800 z-0 opacity-50">49</span>
+                    <div class="relative z-10">
+                        <h3 class="text-3xl font-black uppercase mb-4 border-b-4 border-lime-400 pb-2">Legal Frameworks</h3>
+                        <p class="font-bold text-xl mb-4">49 of 50 US States</p>
+                        <p class="text-md leading-relaxed text-zinc-300 mb-4">
+                            The legal landscape has shifted dramatically. 49 out of 50 US states now have specific school sanctions and laws against cyberbullying (Mistretta). This moves netiquette from "polite suggestions" to "legal requirements."
+                        </p>
+                        <p class="text-md leading-relaxed text-zinc-300 mb-4">
+                            Schools are now mandated to have policies for digital aggression, meaning online behavior can lead to suspension or expulsion. This includes strict definitions of "harassment," mandatory reporting protocols for teachers, and the extension of school authority to off-campus digital acts that disrupt the learning environment.
+                        </p>
+                        <p class="text-md leading-relaxed text-zinc-300">
+                            In many jurisdictions, digital stalking and severe cyber-harassment are now prosecutable offenses, blurring the lines between school rules and criminal law.
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Technical & Education -->
+                <div class="flex flex-col gap-6">
+                    <div class="flex-1 bg-zinc-800 p-8 border-2 border-zinc-700">
+                        <h3 class="text-2xl font-black uppercase mb-4 text-cyan-400 border-b-2 border-zinc-600 pb-2">Technical Controls</h3>
+                        <p class="text-zinc-300 text-sm leading-relaxed mb-4">
+                            Social platforms have recognized their role in this ecosystem. Features like "Block," "Mute," "Report," and "Restricted Mode" are now standard. These tools empower the user to enforce their own boundaries when the collective netiquette fails.
+                        </p>
+                        <div class="flex gap-2">
+                            <span class="bg-black px-3 py-1 font-mono text-sm border border-zinc-600 text-white">BLOCK</span>
+                            <span class="bg-black px-3 py-1 font-mono text-sm border border-zinc-600 text-white">MUTE</span>
+                            <span class="bg-black px-3 py-1 font-mono text-sm border border-zinc-600 text-white">REPORT</span>
+                        </div>
+                    </div>
+
+                    <div class="flex-1 bg-zinc-800 p-8 border-2 border-zinc-700">
+                        <h3 class="text-2xl font-black uppercase mb-4 text-pink-500 border-b-2 border-zinc-600 pb-2">Educational Shift</h3>
+                        <p class="text-zinc-300 text-sm leading-relaxed">
+                            "Digital Citizenship" is becoming a standard module in curriculums worldwide. It is no longer enough to teach students how to *use* a computer; we must teach them how to *behave* on one. This includes understanding digital footprints, privacy settings, and the permanence of online data.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: Core Rules -->
+        <div class="slide" id="slide-10">
+            <div class="text-center mb-8">
+                <h2 class="font-mono text-lime-400 mb-2">VIRGINIA_SHEA_CORE_RULES.EXE</h2>
+                <h3 class="text-6xl font-black text-white">RULE #1</h3>
+            </div>
+            
+            <div class="max-w-5xl mx-auto w-full relative">
+                <div class="absolute inset-0 bg-pink-500 transform rotate-1 rounded-xl"></div>
+                <div class="relative bg-black border-2 border-white p-12 rounded-xl text-center">
+                    <h4 class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 uppercase mb-6 text-center">Remember The Human</h4>
+                    
+                    <p class="text-zinc-300 text-lg text-center mb-8 leading-relaxed max-w-3xl mx-auto">
+                        The golden rule of netiquette. When you communicate electronically, all you see is a computer screen. You don't have the opportunity to use facial expressions, gestures, and tone of voice to communicate your meaning; words -- quite lonely written words -- are all you've got. And that's what the other person sees as well.
+                    </p>
+                    
+                    <div class="grid grid-cols-3 gap-8 border-t border-zinc-800 pt-8">
+                        <div class="bg-zinc-900 p-4 border border-zinc-700">
+                            <h5 class="font-bold text-white mb-2 text-xl">Context</h5>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                Know where you are in cyberspace. What is acceptable in a gaming chat (trash talk, slang) is unacceptable in a classroom forum. Adapt your behavior to the digital environment you are entering.
+                            </p>
+                        </div>
+                        <div class="bg-zinc-900 p-4 border border-zinc-700">
+                            <h5 class="font-bold text-white mb-2 text-xl">Tone</h5>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                Text has no voice. Sarcasm is often misread as aggression. Always read your message out loud before sending to check if the tone could be misinterpreted.
+                            </p>
+                        </div>
+                        <div class="bg-zinc-900 p-4 border border-zinc-700">
+                            <h5 class="font-bold text-white mb-2 text-xl">Expertise</h5>
+                            <p class="text-sm text-zinc-400 leading-relaxed">
+                                Share expert knowledge. The internet was built on the principle of shared information. If you know the answer to a question, help others. Don't hoard information.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: Email Etiquette -->
+        <div class="slide" id="slide-11">
+            <div class="bg-zinc-900 w-full max-w-7xl mx-auto p-8 rounded-lg relative h-[80vh] flex flex-col justify-center">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold uppercase">Email Protocol</h2>
+                    <div class="flex gap-2 items-center">
+                        <span class="font-mono text-zinc-500 text-xs mr-4">PROFESSIONAL STANDARDS v2.0</span>
+                        <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                        <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-12 h-full">
+                    <!-- Standard Protocol (Visual) -->
+                     <div class="bg-white text-black font-mono p-8 shadow-[10px_10px_0px_0px_#10b981] relative group flex flex-col h-full justify-center">
+                        <div class="absolute -top-2 -right-2 bg-black text-white text-xs font-bold px-2 py-1 transform rotate-2">CORRECT FORMAT</div>
+                        <div class="border-b border-gray-300 py-3 flex items-center">
+                            <span class="w-20 font-bold text-gray-500">BCC:</span>
+                            <span class="text-pink-600 font-bold bg-pink-100 px-2 text-xs">USE FOR MASS EMAILS (PRIVACY)</span>
+                        </div>
+                        <div class="border-b border-gray-300 py-3 flex items-center">
+                            <span class="w-20 font-bold text-gray-500">SUBJ:</span>
+                            <span class="font-bold text-sm">Q3 Report Submission [Action Required]</span>
+                        </div>
+                        <div class="py-6 text-gray-800 text-sm leading-relaxed flex-1">
+                            <p class="mb-4">Dear Team,</p>
+                            <p class="mb-4">Please find the attached Q3 performance report for your review. We require feedback by Friday, 5 PM.</p>
+                            <div class="bg-red-100 border border-red-500 text-red-700 p-2 mb-4 inline-block text-xs font-bold">
+                                🚫 RULE: NO ALL CAPS. IT IS PERCEIVED AS SHOUTING.
+                            </div>
+                            <p class="mb-4">Let me know if you have questions.</p>
+                            <p>Best regards,<br>Project Manager</p>
+                        </div>
+                    </div>
+
+                    <!-- Protocol Rules (Text) -->
+                    <div class="flex flex-col justify-center space-y-6">
+                        <div class="border-l-4 border-lime-400 pl-6">
+                            <h4 class="text-lime-400 font-bold uppercase text-lg mb-2">The Subject Line</h4>
+                            <p class="text-zinc-300 text-sm leading-relaxed">
+                                The subject line is the "Trailer" of your email. If it is vague (e.g., "Hello", "Question", "Urgent"), it often gets ignored or flagged as spam. Professional netiquette dictates specificity: "Project Update - March 23" or "Meeting Request: Marketing Strategy". This respects the recipient's time by allowing them to prioritize without opening the email.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-pink-500 pl-6">
+                            <h4 class="text-pink-500 font-bold uppercase text-lg mb-2">Privacy (BCC vs CC)</h4>
+                            <p class="text-zinc-300 text-sm leading-relaxed">
+                                This is a critical privacy violation. When emailing a large group of people who do not know each other, you MUST use <strong>BCC (Blind Carbon Copy)</strong>. Using "To" or "CC" exposes everyone's private email addresses to strangers, which can lead to spam or data breaches. CC should only be used for transparency among a team that already works together.
+                            </p>
+                        </div>
+                        <div class="border-l-4 border-cyan-400 pl-6">
+                            <h4 class="text-cyan-400 font-bold uppercase text-lg mb-2">The Blacklist</h4>
+                            <ul class="text-zinc-300 text-sm leading-relaxed list-disc pl-4 space-y-2">
+                                <li><strong>Reply All Abuse:</strong> Do not hit "Reply All" to a company-wide email just to say "Thanks." It wastes collective bandwidth.</li>
+                                <li><strong>High Priority Flag:</strong> Do not abuse the "Urgent" red flag. If everything is urgent, nothing is urgent.</li>
+                                <li><strong>Large Attachments:</strong> Don't send 50MB files. Use a cloud link (Drive/Dropbox) to respect inbox storage limits.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: Empowerment (Fix: Level Text, Add Margin) -->
+        <div class="slide" id="slide-12">
+            <!-- Container is rotated for style -->
+            <div class="bg-lime-400 text-black p-12 relative overflow-hidden w-full max-w-6xl mx-auto transform rotate-1 h-[75vh] flex flex-col justify-center rounded-xl shadow-2xl">
+                
+                <!-- Counter-rotate content so it is level -->
+                <div class="transform -rotate-1 h-full flex flex-col justify-center pb-8"> 
+                    <i data-lucide="trending-up" class="absolute -right-20 -bottom-20 w-96 h-96 opacity-10"></i>
+                    <h2 class="text-6xl md:text-8xl font-black uppercase mb-12 relative z-10">
+                        Digital<br>Empowerment
+                    </h2>
+                    <div class="grid md:grid-cols-3 gap-8 relative z-10">
+                        <div class="bg-black/10 p-6 backdrop-blur-sm border border-black/20">
+                            <div class="flex items-center gap-4 mb-4">
+                                <span class="bg-black text-white w-10 h-10 flex items-center justify-center text-lg font-bold rounded-full">1</span>
+                                <h3 class="text-xl font-bold uppercase">Professional Readiness</h3>
+                            </div>
+                            <p class="font-medium leading-relaxed text-sm">
+                                Netiquette is a "Gatekeeper Skill." In the modern workforce, your email tone and digital footprint are often your first impression. Employers screen social media. A strong grasp of netiquette empowers you to build a professional brand that opens doors rather than closing them.
+                            </p>
+                        </div>
+
+                        <div class="bg-black/10 p-6 backdrop-blur-sm border border-black/20">
+                            <div class="flex items-center gap-4 mb-4">
+                                <span class="bg-black text-white w-10 h-10 flex items-center justify-center text-lg font-bold rounded-full">2</span>
+                                <h3 class="text-xl font-bold uppercase">Safety & Control</h3>
+                            </div>
+                            <p class="font-medium leading-relaxed text-sm">
+                                Empowerment means control. Understanding netiquette gives you the tools to curate your digital environment. You learn how to block toxicity, report harassment effectively, and manage your privacy settings to prevent doxxing. You stop being a passive victim of the algorithm.
+                            </p>
+                        </div>
+
+                        <div class="bg-black/10 p-6 backdrop-blur-sm border border-black/20">
+                            <div class="flex items-center gap-4 mb-4">
+                                <span class="bg-black text-white w-10 h-10 flex items-center justify-center text-lg font-bold rounded-full">3</span>
+                                <h3 class="text-xl font-bold uppercase">Inclusive Spaces</h3>
+                            </div>
+                            <p class="font-medium leading-relaxed text-sm">
+                                True empowerment is collective. By following netiquette, we create inclusive spaces where diverse voices can speak without fear of harassment. It transforms the internet from a "survival of the loudest" to a collaborative platform where the best ideas win.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 14: Survey Methodology -->
+        <div class="slide" id="slide-13">
+            <div class="flex items-center gap-4 mb-12">
+                <span class="bg-cyan-400 text-black font-bold px-3 py-1 sticker text-xl">PRIMARY RESEARCH</span>
+                <h2 class="text-4xl font-bold uppercase">Methodology</h2>
+            </div>
+            
+            <div class="border-t-4 border-b-4 border-white py-16 w-full mb-12">
+                <div class="grid md:grid-cols-2 gap-16">
+                    <div>
+                        <h3 class="text-zinc-500 font-mono text-sm uppercase mb-4 tracking-widest">Platform & Sample</h3>
+                        <p class="text-5xl font-bold mb-2">Google Forms</p>
+                        <p class="text-zinc-300 leading-relaxed">
+                            We conducted an anonymous online survey targeting <strong>21 respondents</strong> (University Students/Peers). The platform was chosen for accessibility and ease of data visualization. The sample represents a "Digital Native" demographic who grew up with the internet.
+                        </p>
+                    </div>
+                    <div>
+                        <h3 class="text-zinc-500 font-mono text-sm uppercase mb-4 tracking-widest">Focus Area</h3>
+                        <p class="text-5xl font-bold mb-2">Subjective Perception</p>
+                        <p class="text-zinc-300 leading-relaxed">
+                            Unlike the academic studies which measured aggression frequency, our survey focused on <strong>self-perception</strong> and <strong>awareness</strong>. We wanted to understand *where* students learned these rules and if they believe the current digital landscape is respectful.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-6">
+                <h3 class="text-xl font-bold text-white mb-4">Key Investigative Questions:</h3>
+                <div class="bg-zinc-900 p-4 border-l-4 border-lime-400">
+                    <p class="font-mono text-lime-400 text-lg">"Where did you primarily learn your online etiquette?"</p>
+                    <p class="text-zinc-500 text-sm mt-1">Hypothesis: Most students are self-taught, leading to inconsistent rule application.</p>
+                </div>
+                <div class="bg-zinc-900 p-4 border-l-4 border-pink-500">
+                    <p class="font-mono text-pink-500 text-lg">"Do you feel people are less respectful online than in person?"</p>
+                    <p class="text-zinc-500 text-sm mt-1">Hypothesis: The Online Disinhibition Effect creates a perception of toxicity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: Survey Results (Fix: Overflow Issue) -->
+        <div class="slide" id="slide-14">
+            <h2 class="text-4xl font-black uppercase mb-8 flex items-center gap-4">
+                Survey Analysis <span class="text-sm bg-red-500 text-white px-3 py-1 rounded font-mono">N=21 RESPONDENTS</span>
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-6 w-full max-w-7xl h-[75vh] overflow-hidden">
+                <!-- Chart 1: Learning Source -->
+                <div class="bg-zinc-900 p-6 border border-zinc-800 flex flex-col justify-between h-full">
+                    <div>
+                        <h3 class="font-bold text-white mb-2 uppercase text-lg border-b border-zinc-800 pb-2">Q1: Where did you learn?</h3>
+                        <p class="text-zinc-400 text-sm mb-4 leading-relaxed">
+                            This data confirms a major gap in our education system. The vast majority of respondents <strong>(61.9%)</strong> had to teach themselves netiquette through observation. Only <strong>14.3%</strong> learned it formally in school.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm text-white font-bold mb-1"><span>Self-Taught</span><span>61.9%</span></div>
+                            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-pink-500" style="--percent: 61.9%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm text-zinc-400 mb-1"><span>School</span><span>14.3%</span></div>
+                            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-zinc-600" style="--percent: 14.3%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 2: Perception -->
+                <div class="bg-zinc-900 p-6 border border-zinc-800 flex flex-col justify-between h-full">
+                    <div>
+                        <h3 class="font-bold text-white mb-2 uppercase text-lg border-b border-zinc-800 pb-2">Q2: Is Online Respect Lower?</h3>
+                        <p class="text-zinc-400 text-sm mb-4 leading-relaxed">
+                            The consensus is overwhelming. <strong>85.7%</strong> of respondents feel that people are significantly <em>less</em> respectful online than in person. This validates the "Online Disinhibition Effect" theory.
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm text-white font-bold mb-1"><span>Less Respectful Online</span><span>85.7%</span></div>
+                            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-red-500" style="--percent: 85.7%"></div></div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm text-zinc-400 mb-1"><span>Same / More Respectful</span><span>14.3%</span></div>
+                            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-zinc-600" style="--percent: 14.3%"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart 3: Education (Compact) -->
+                <div class="bg-zinc-900 p-6 border border-zinc-800 md:col-span-2 flex flex-col justify-center h-32">
+                    <h3 class="font-bold text-white mb-2 uppercase text-lg">Conclusion: The Demand for Education</h3>
+                    <div class="flex items-center gap-4">
+                        <p class="text-zinc-400 text-sm flex-1">
+                            <strong>95.2%</strong> believe Netiquette <em>should</em> be taught in schools.
+                        </p>
+                        <div class="w-2/3 h-12 flex relative group">
+                            <div class="h-full bg-lime-400 flex items-center justify-center text-black font-black text-xl bar-fill w-[95.2%]">YES (95.2%)</div>
+                            <div class="h-full bg-red-500 flex-1"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 16: Conclusion (Redesigned) -->
+        <div class="slide" id="slide-15">
+            <div class="flex flex-col justify-center items-center h-full w-full">
+                <div class="border-4 border-white p-16 max-w-6xl relative text-center mx-auto">
+                    <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-[#111] px-6">
+                        <i data-lucide="heart" class="w-16 h-16 text-pink-500"></i>
+                    </div>
+                    <h2 class="text-6xl md:text-7xl font-black uppercase leading-tight mb-12 mt-4">
+                        "Technology changes.<br>Values remain."
+                    </h2>
+                    
+                    <div class="text-left max-w-4xl mx-auto space-y-6 text-lg text-zinc-400 font-light leading-relaxed">
+                        <p>
+                            We began this presentation by defining Netiquette as a set of rules. We end by redefining it as a system of <strong>Ethics</strong>.
+                        </p>
+                        <p>
+                            The platforms will change. Today it is Instagram and WhatsApp; tomorrow it will be VR and Metaverse. But the fundamental truth remains: behind every avatar, every handle, and every email address, there is a human being.
+                        </p>
+                        <p>
+                            True digital empowerment isn't just about knowing how to code or use software. It is about having the emotional intelligence to treat that human being with dignity, even when no one is watching.
+                        </p>
+                    </div>
+
+                    <div class="mt-12 w-full max-w-4xl mx-auto">
+                        <div class="bg-lime-400 text-black text-3xl font-black px-16 py-6 uppercase tracking-widest shadow-[12px_12px_0px_#fff] block w-full text-center hover:bg-white transition-colors cursor-pointer transform hover:-translate-y-1">
+                            Remember The Human
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 17: Sources (Fix: Redesigned with Boxes) -->
+        <div class="slide" id="slide-16">
+            <h2 class="text-4xl font-black uppercase mb-8">Sources_</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 font-mono text-sm">
+                
+                <div class="bg-zinc-900 border border-zinc-700 p-6 hover:border-lime-400 transition-colors group">
+                    <div class="text-lime-400 text-xs mb-2 opacity-50 group-hover:opacity-100">[01] ACADEMIC PAPER</div>
+                    <p class="text-white font-bold mb-2">Soler-Costa, R. et al. (2021)</p>
+                    <p class="text-zinc-400 text-xs">"Netiquette: Ethic, Education, and Behavior on Internet—A Systematic Literature Review". <em>Int. J. Environ. Res. Public Health</em>.</p>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-700 p-6 hover:border-pink-500 transition-colors group">
+                    <div class="text-pink-500 text-xs mb-2 opacity-50 group-hover:opacity-100">[02] ACADEMIC PAPER</div>
+                    <p class="text-white font-bold mb-2">Law, D. M. et al. (2010)</p>
+                    <p class="text-zinc-400 text-xs">"To control or not to control? Parenting behaviours and adolescent online aggression". <em>Computers in Human Behavior</em>.</p>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-700 p-6 hover:border-cyan-400 transition-colors group">
+                    <div class="text-cyan-400 text-xs mb-2 opacity-50 group-hover:opacity-100">[03] ACADEMIC PAPER</div>
+                    <p class="text-white font-bold mb-2">Mistretta, S. (2021)</p>
+                    <p class="text-zinc-400 text-xs">"The New Netiquette: Choosing Civility in an Age of Online Teaching and Learning". <em>International Journal on E-Learning</em>.</p>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-700 p-6 hover:border-white transition-colors group">
+                    <div class="text-white text-xs mb-2 opacity-50 group-hover:opacity-100">[04] JOURNAL</div>
+                    <p class="text-white font-bold mb-2">IOSR Journal of Engineering (2017)</p>
+                    <p class="text-zinc-400 text-xs">"The Growing Need of Netiquette in the Digital Age". <em>IOSR-JEN</em>.</p>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-700 p-6 hover:border-white transition-colors group">
+                    <div class="text-white text-xs mb-2 opacity-50 group-hover:opacity-100">[05] BOOK</div>
+                    <p class="text-white font-bold mb-2">Virginia Shea</p>
+                    <p class="text-zinc-400 text-xs">"Netiquette" (Book/Online Resource). The foundational text for core digital rules.</p>
+                </div>
+
+                <div class="bg-zinc-900 border border-zinc-700 p-6 hover:border-white transition-colors group">
+                    <div class="text-white text-xs mb-2 opacity-50 group-hover:opacity-100">[06] PRIMARY DATA</div>
+                    <p class="text-white font-bold mb-2">Primary Research (2025)</p>
+                    <p class="text-zinc-400 text-xs">Group Survey on Netiquette Awareness (N=21). Conducted via Google Forms.</p>
+                </div>
+
+            </div>
+            <div class="mt-12 text-zinc-600 uppercase text-sm tracking-widest text-center">
+                // End of Presentation // Group 6 // Digital Empowerment
+            </div>
+        </div>
+
+    </main>
+
+    <!-- NAVIGATION -->
+    <div class="fixed bottom-8 right-8 flex gap-2 z-50">
+        <button id="prevBtn" class="bg-zinc-800 text-white w-12 h-12 flex items-center justify-center hover:bg-lime-400 hover:text-black transition-colors border-2 border-transparent hover:border-white">
+            <i data-lucide="chevron-left"></i>
+        </button>
+        <button id="nextBtn" class="bg-zinc-800 text-white w-12 h-12 flex items-center justify-center hover:bg-lime-400 hover:text-black transition-colors border-2 border-transparent hover:border-white">
+            <i data-lucide="chevron-right"></i>
+        </button>
+    </div>
+
+    <div class="fixed bottom-8 left-8 font-mono text-xs text-zinc-600 z-50">
+        SLIDE_<span id="slide-counter">01</span>
+    </div>
+
+    <script>
+        // Init Icons
+        lucide.createIcons();
+
+        // Slide Logic
+        const slides = document.querySelectorAll('.slide');
+        let currentSlide = 0;
+        const totalSlides = slides.length;
+        const counter = document.getElementById('slide-counter');
+
+        function updateSlide() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+            counter.innerText = (currentSlide + 1).toString().padStart(2, '0');
+        }
+
+        document.getElementById('nextBtn').addEventListener('click', () => {
+            if (currentSlide < totalSlides - 1) {
+                currentSlide++;
+                updateSlide();
+            }
+        });
+
+        document.getElementById('prevBtn').addEventListener('click', () => {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlide();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                if (currentSlide < totalSlides - 1) {
+                    currentSlide++;
+                    updateSlide();
+                }
+            }
+            if (e.key === 'ArrowLeft') {
+                if (currentSlide > 0) {
+                    currentSlide--;
+                    updateSlide();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
