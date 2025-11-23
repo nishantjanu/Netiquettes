@@ -111,6 +111,28 @@
         .active .bar-fill {
             width: var(--percent);
         }
+
+        /* Pie Chart CSS */
+        .pie-chart {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--color-1) 0% var(--p-1),
+                var(--color-2) var(--p-1) var(--p-2),
+                var(--color-3) var(--p-2) var(--p-3),
+                var(--color-4) var(--p-3) 100%
+            );
+            position: relative;
+        }
+        .pie-hole {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60%; height: 60%;
+            background: #18181b; /* Zinc-900 */
+            border-radius: 50%;
+        }
         
         /* Scrollbar for overflow text */
         .overflow-y-auto::-webkit-scrollbar {
@@ -350,7 +372,7 @@
                 </div>
             </div>
         </div>
-        <!-- SLIDE 6.5 (NEW): LITERATURE REVIEW -->
+       <!-- SLIDE 6.5 (NEW): LITERATURE REVIEW -->
         <div class="slide" id="slide-6.5">
             <div class="flex items-center gap-4 mb-10">
                 <span class="bg-white text-black font-black px-3 py-1 text-xl sticker">ACADEMIC FOUNDATION</span>
@@ -410,11 +432,11 @@
             </div>
         </div>
 
-        <!-- SLIDE 8: Global Research -->
+        <!-- SLIDE 7: Global Research -->
         <div class="slide" id="slide-6">
             <div class="flex justify-between items-end border-b-2 border-white pb-4 mb-4">
                 <h2 class="text-4xl font-black uppercase">Global Data</h2>
-                <span class="font-mono text-lime-400">SOURCE: "Netiquette: Ethic, Education, and Behavior on Internet" -- SOLER-COSTA (2021)</span>
+                <span class="font-mono text-lime-400">SOURCE: SOLER-COSTA (2021)</span>
             </div>
             <div class="grid md:grid-cols-3 gap-6 h-full pb-12">
                 <!-- Korea -->
@@ -559,31 +581,40 @@
             </div>
         </div>
 
-        <!-- SLIDE 10: Status Quo (Fix: Expanded Content) -->
+        <!-- SLIDE 10: Status Quo -->
         <div class="slide" id="slide-9">
             <h2 class="text-5xl font-black uppercase mb-12">Status Quo</h2>
             <div class="grid md:grid-cols-2 gap-8 h-full max-h-[70vh] overflow-y-auto">
-                <!-- Legal -->
-                <div class="bg-zinc-900 text-white p-8 relative overflow-hidden flex flex-col border-2 border-lime-400">
-                    <span class="absolute -right-4 -bottom-8 text-[12rem] font-black text-zinc-800 z-0 opacity-50">49</span>
-                    <div class="relative z-10">
-                        <h3 class="text-3xl font-black uppercase mb-4 border-b-4 border-lime-400 pb-2">Legal Frameworks</h3>
-                        <p class="font-bold text-xl mb-4">49 of 50 US States</p>
-                        <p class="text-md leading-relaxed text-zinc-300 mb-4">
-                            The legal landscape has shifted dramatically. 49 out of 50 US states now have specific school sanctions and laws against cyberbullying (Mistretta). This moves netiquette from "polite suggestions" to "legal requirements."
-                        </p>
-                        <p class="text-md leading-relaxed text-zinc-300 mb-4">
-                            Schools are now mandated to have policies for digital aggression, meaning online behavior can lead to suspension or expulsion. This includes strict definitions of "harassment," mandatory reporting protocols for teachers, and the extension of school authority to off-campus digital acts that disrupt the learning environment.
-                        </p>
-                        <p class="text-md leading-relaxed text-zinc-300">
-                            In many jurisdictions, digital stalking and severe cyber-harassment are now prosecutable offenses, blurring the lines between school rules and criminal law.
-                        </p>
-                    </div>
-                </div>
+                <!-- REPLACE: Left box — Legal Frameworks (India) -->
+<div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-between">
+  <div>
+    <div class="h-20 flex items-center border-b border-zinc-800 pb-4 mb-4">
+      <h3 class="font-bold text-white uppercase text-4xl leading-tight">Legal Frameworks</h3>
+    </div>
+
+    <div class="space-y-4 text-zinc-300">
+      <div>
+        <div class="text-sm text-lime-400 font-bold mb-1">Key Acts & Rules (India)</div>
+        <ul class="list-disc ml-5 mt-2 text-[0.95rem]">
+          <li><strong>Information Technology Act, 2000</strong> — backbone of Indian cyberlaw (electronic transactions, cyber offences, intermediary liability and rules/notifications that regulate online platforms).</li>
+          <li><strong>Indian Penal Code, 1860</strong> &amp; <strong>Code of Criminal Procedure, 1973</strong> — used to prosecute stalking, harassment, defamation and other criminal online acts.</li>
+          <li><strong>Indian Telegraph Act, 1885</strong> &amp; <strong>TRAI Act, 1997</strong> — govern telecom infrastructure and service regulation that underpin online communications.</li>
+          <li><strong>Indian Evidence Act, 1872</strong> — provides for admissibility of electronic records as evidence in courts.</li>
+          <li><strong>Rules &amp; Notifications under the IT Act</strong> — e.g., intermediary guidelines, cybersecurity/incident reporting rules, and other regulatory orders that affect platform duties and takedown processes.</li>
+        </ul>
+      </div>
+
+      <p class="text-[0.95rem] text-zinc-400 mt-2">
+        Together these statutes create a multi-layered legal regime: procedural & criminal remedies (IPC/CrPC), substantive cyber-specific provisions (IT Act and its rules), evidentiary support for digital proof, and telecom/regulatory powers that shape platform responsibilities. Institutions in India can therefore pursue both policy-level controls and legal action when netiquette breaks into harassment or criminal conduct.
+      </p>
+    </div>
+  </div>
+</div>
+
                 
                 <!-- Technical & Education -->
                 <div class="flex flex-col gap-6">
-                    <div class="flex-1 bg-zinc-800 p-8 border-2 border-zinc-700">
+                    <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col">
                         <h3 class="text-2xl font-black uppercase mb-4 text-cyan-400 border-b-2 border-zinc-600 pb-2">Technical Controls</h3>
                         <p class="text-zinc-300 text-sm leading-relaxed mb-4">
                             Social platforms have recognized their role in this ecosystem. Features like "Block," "Mute," "Report," and "Restricted Mode" are now standard. These tools empower the user to enforce their own boundaries when the collective netiquette fails.
@@ -595,10 +626,12 @@
                         </div>
                     </div>
 
-                    <div class="flex-1 bg-zinc-800 p-8 border-2 border-zinc-700">
+                    <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-start">
                         <h3 class="text-2xl font-black uppercase mb-4 text-pink-500 border-b-2 border-zinc-600 pb-2">Educational Shift</h3>
                         <p class="text-zinc-300 text-sm leading-relaxed">
-                            "Digital Citizenship" is becoming a standard module in curriculums worldwide. It is no longer enough to teach students how to *use* a computer; we must teach them how to *behave* on one. This includes understanding digital footprints, privacy settings, and the permanence of online data.
+                            "Digital Citizenship" is rapidly establishing itself as an essential standard module within educational curriculums around the world. As technology permeates every aspect of our lives, mere technical proficiency is no longer the benchmark; it is insufficient to simply teach students how to use a computer. Rather, educators face a growing mandate to instill principles of behaving responsibly, ethically, and safely online.
+
+This pedagogical shift involves more than basic etiquette; it encompasses a robust understanding of digital footprints and the critical importance of managing privacy settings. Moreover, students must recognize the permanence of online data, grasping that a fleeting post can have irreversible consequences on their future personal and professional reputations.
                         </p>
                     </div>
                 </div>
@@ -681,6 +714,215 @@
                         </div>
                     </div>
 
+                    <!-- SLIDE: Some Common Etiquettes - Colorful large glass grid (3 rows x 4 cols) -->
+<div class="slide" id="slide-etiquette-grid" style="padding-top:28px; padding-bottom:28px;">
+  <h2 class="text-5xl font-black uppercase mb-6 flex items-center gap-4">
+    Some Common Etiquettes
+    <span class="text-sm bg-gradient-to-r from-sky-500 to-indigo-500 text-white px-3 py-1 rounded font-mono">BEST PRACTICES</span>
+  </h2>
+
+  <!-- Wider grid that uses most of the slide area -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8" style="height:calc(100vh - 220px);">
+    <!-- Each card gets a colorful accent and larger area -->
+    <!-- Card 1 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Be respectful" style="--accent:linear-gradient(180deg,#06b6d4,#0ea5b7);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z" fill="white" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Be respectful</h4>
+      </div>
+      <p class="card-desc">Use polite language; avoid personal attacks and insults. Small courtesy fosters constructive spaces.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Think before posting" style="--accent:linear-gradient(180deg,#f59e0b,#f97316);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Think before posting</h4>
+      </div>
+      <p class="card-desc">Pause. Is it accurate, helpful, or private? If unsure — don't post until verified.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Respect privacy" style="--accent:linear-gradient(180deg,#84cc16,#65a30d);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 17a2 2 0 0 0 2-2v-2a2 2 0 0 0-4 0v2a2 2 0 0 0 2 2z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/><path d="M6 10V8a6 6 0 0 1 12 0v2" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Respect privacy</h4>
+      </div>
+      <p class="card-desc">Don't share private messages, photos, or data without consent.</p>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Credit sources" style="--accent:linear-gradient(180deg,#8b5cf6,#7c3aed);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M10 14a5 5 0 0 1 0-7l3-3a5 5 0 0 1 7 7l-1 1" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/><path d="M14 10a5 5 0 0 1 0 7l-3 3a5 5 0 0 1-7-7l1-1" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Credit sources</h4>
+      </div>
+      <p class="card-desc">Cite sources when sharing quotes, images or data — attribution keeps discussion honest.</p>
+    </div>
+
+    <!-- Row 2, Card 5 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Be concise" style="--accent:linear-gradient(180deg,#06b6d4,#0891b2);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M9 18h6M12 2a7 7 0 0 1 4 12.1A3 3 0 0 0 15 21h-6a3 3 0 0 0-1-6.9A7 7 0 0 1 12 2z" stroke="white" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Be concise & constructive</h4>
+      </div>
+      <p class="card-desc">State issues clearly and offer helpful solutions — short + actionable is best.</p>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Avoid all caps" style="--accent:linear-gradient(180deg,#f43f5e,#ef4444);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><text x="0" y="14" font-size="12" fill="white" font-family="monospace" opacity="0.95">Aa</text></svg>
+        </div>
+        <h4 class="card-title">Avoid ALL-CAPS</h4>
+      </div>
+      <p class="card-desc">CAPS come across as shouting—use normal case for better tone.</p>
+    </div>
+
+    <!-- Card 7 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Inclusive language" style="--accent:linear-gradient(180deg,#06b6d4,#7c3aed);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zM2 20c0-2.21 3.58-4 8-4s8 1.79 8 4v1H2v-1z" stroke="white" stroke-width="0.9" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Use inclusive language</h4>
+      </div>
+      <p class="card-desc">Choose words that respect different identities and experiences.</p>
+    </div>
+
+    <!-- Card 8 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Report abuse" style="--accent:linear-gradient(180deg,#f97316,#ef4444);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2l7 4v6c0 5-3.58 9-7 10-3.42-1-7-5-7-10V6l7-4z" stroke="white" stroke-width="1.2" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Report abuse</h4>
+      </div>
+      <p class="card-desc">Use platform tools to report harassment and protect others.</p>
+    </div>
+
+    <!-- Card 9 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Check facts" style="--accent:linear-gradient(180deg,#f59e0b,#f97316);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14z" stroke="white" stroke-width="1.2" opacity="0.95"/><path d="M21 21l-4.35-4.35" stroke="white" stroke-width="1.2" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Double-check facts</h4>
+      </div>
+      <p class="card-desc">Verify numbers, dates and quotes before sharing.</p>
+    </div>
+
+    <!-- Card 10 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Private feedback" style="--accent:linear-gradient(180deg,#22c55e,#16a34a);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M21 8V6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2l3 3 3-3h5a2 2 0 0 0 2-2v-2" stroke="white" stroke-width="1.2" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Give feedback privately</h4>
+      </div>
+      <p class="card-desc">For sensitive issues, prefer DMs or email instead of public calls-out.</p>
+    </div>
+
+    <!-- Card 11 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Follow rules" style="--accent:linear-gradient(180deg,#60a5fa,#3b82f6);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4 6h16M4 12h16M4 18h16" stroke="white" stroke-width="1.2" stroke-linecap="round" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Follow community rules</h4>
+      </div>
+      <p class="card-desc">Read pinned guidelines and follow the community norms.</p>
+    </div>
+
+    <!-- Card 12 -->
+    <div class="glass-card colorful-card" role="article" aria-label="Be forgiving" style="--accent:linear-gradient(180deg,#a78bfa,#7c3aed);">
+      <div class="card-head">
+        <div class="icon-circle" aria-hidden>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-6-4.35-9-7.5C2.43 11.67 4.74 6 12 3c7.26 3 9.57 8.67 9 10.5C18 16.65 12 21 12 21z" stroke="white" stroke-width="1.1" opacity="0.95"/></svg>
+        </div>
+        <h4 class="card-title">Be forgiving</h4>
+      </div>
+      <p class="card-desc">People make mistakes — correct kindly and move forward.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Colorful glass grid styles (add to main CSS or inside page) -->
+<style>
+/* Bigger, more spacious glass cards */
+.glass-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  border-radius: 14px;
+  padding: 22px;
+  color: #fff;
+  box-shadow: 0 10px 28px rgba(2,6,23,0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  min-height:170px;
+  transition: transform .24s cubic-bezier(.2,.9,.2,1), box-shadow .24s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* accent bar on left using the --accent custom property */
+.colorful-card::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:8px;
+  background: var(--accent);
+  opacity:0.95;
+  border-top-left-radius:14px;
+  border-bottom-left-radius:14px;
+}
+
+/* hover */
+.glass-card:hover{ transform: translateY(-8px); box-shadow: 0 22px 48px rgba(2,6,23,0.7); }
+
+.card-head{ display:flex; align-items:center; gap:14px; }
+.icon-circle{ width:52px; height:52px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
+  box-shadow: inset 0 -6px 12px rgba(255,255,255,0.02), 0 8px 22px rgba(2,6,23,0.55);
+  border:1px solid rgba(255,255,255,0.03);
+  flex-shrink:0;
+}
+
+.card-title{ font-family: 'JetBrains Mono', 'Inter', sans-serif; font-size:1.05rem; font-weight:800; letter-spacing:0.2px; }
+.card-desc{ font-family: 'Inter', 'JetBrains Mono', monospace; color:rgba(255,255,255,0.75); font-size:0.98rem; margin:0; line-height:1.38; }
+
+/* make the grid fill more vertical space on large screens */
+@media(min-width:1024px){
+  .grid { align-items:stretch; }
+  .glass-card{ min-height:200px; padding:24px; }
+}
+
+/* responsive */
+@media(max-width:800px){
+  .glass-card{ min-height:140px; padding:16px; }
+  .icon-circle{ width:44px; height:44px; border-radius:10px; }
+}
+
+/* ensure slide spacing looks correct */
+#slide-etiquette-grid { padding-bottom:36px; }
+</style>
+
                     <!-- Protocol Rules (Text) -->
                     <div class="flex flex-col justify-center space-y-6">
                         <div class="border-l-4 border-lime-400 pl-6">
@@ -708,12 +950,9 @@
             </div>
         </div>
 
-        <!-- SLIDE 13: Empowerment (Fix: Level Text, Add Margin) -->
+        <!-- SLIDE 13: Empowerment -->
         <div class="slide" id="slide-12">
-            <!-- Container is rotated for style -->
             <div class="bg-lime-400 text-black p-12 relative overflow-hidden w-full max-w-6xl mx-auto transform rotate-1 h-[75vh] flex flex-col justify-center rounded-xl shadow-2xl">
-                
-                <!-- Counter-rotate content so it is level -->
                 <div class="transform -rotate-1 h-full flex flex-col justify-center pb-8"> 
                     <i data-lucide="trending-up" class="absolute -right-20 -bottom-20 w-96 h-96 opacity-10"></i>
                     <h2 class="text-6xl md:text-8xl font-black uppercase mb-12 relative z-10">
@@ -729,7 +968,6 @@
                                 Netiquette is a "Gatekeeper Skill." In the modern workforce, your email tone and digital footprint are often your first impression. Employers screen social media. A strong grasp of netiquette empowers you to build a professional brand that opens doors rather than closing them.
                             </p>
                         </div>
-
                         <div class="bg-black/10 p-6 backdrop-blur-sm border border-black/20">
                             <div class="flex items-center gap-4 mb-4">
                                 <span class="bg-black text-white w-10 h-10 flex items-center justify-center text-lg font-bold rounded-full">2</span>
@@ -739,7 +977,6 @@
                                 Empowerment means control. Understanding netiquette gives you the tools to curate your digital environment. You learn how to block toxicity, report harassment effectively, and manage your privacy settings to prevent doxxing. You stop being a passive victim of the algorithm.
                             </p>
                         </div>
-
                         <div class="bg-black/10 p-6 backdrop-blur-sm border border-black/20">
                             <div class="flex items-center gap-4 mb-4">
                                 <span class="bg-black text-white w-10 h-10 flex items-center justify-center text-lg font-bold rounded-full">3</span>
@@ -760,26 +997,24 @@
                 <span class="bg-cyan-400 text-black font-bold px-3 py-1 sticker text-xl">PRIMARY RESEARCH</span>
                 <h2 class="text-4xl font-bold uppercase">Methodology</h2>
             </div>
-            
             <div class="border-t-4 border-b-4 border-white py-16 w-full mb-12">
                 <div class="grid md:grid-cols-2 gap-16">
                     <div>
-                        <h3 class="text-zinc-500 font-mono text-sm uppercase mb-4 tracking-widest">Platform & Sample</h3>
+                        <h3 class="text-zinc-500 font-mono text-sm uppercase mb-4 tracking-widest">Platform, Sample & TARGET GROUP</h3>
                         <p class="text-5xl font-bold mb-2">Google Forms</p>
                         <p class="text-zinc-300 leading-relaxed">
-                            We conducted an anonymous online survey targeting <strong>21 respondents</strong> (University Students/Peers). The platform was chosen for accessibility and ease of data visualization. The sample represents a "Digital Native" demographic who grew up with the internet.
+                            We conducted an anonymous online survey with <strong>104 respondents</strong>, the majority of whom were college/university students. This group was intentionally chosen because they represent one of the most active and engaged segments of internet users, making them a relevant “Digital Native” demographic for studying online etiquette. Google Forms was used for convenience, accessibility, and clear data visualization.
                         </p>
                     </div>
                     <div>
                         <h3 class="text-zinc-500 font-mono text-sm uppercase mb-4 tracking-widest">Focus Area</h3>
                         <p class="text-5xl font-bold mb-2">Subjective Perception</p>
                         <p class="text-zinc-300 leading-relaxed">
-                            Unlike the academic studies which measured aggression frequency, our survey focused on <strong>self-perception</strong> and <strong>awareness</strong>. We wanted to understand *where* students learned these rules and if they believe the current digital landscape is respectful.
+                            Unlike the academic studies which measured aggression frequency, our survey focused on <strong>self-perception</strong> and <strong>awareness</strong>. We wanted to understand where students learned these rules and if they believe the current digital landscape is respectful.
                         </p>
                     </div>
                 </div>
             </div>
-            
             <div class="space-y-6">
                 <h3 class="text-xl font-bold text-white mb-4">Key Investigative Questions:</h3>
                 <div class="bg-zinc-900 p-4 border-l-4 border-lime-400">
@@ -793,71 +1028,381 @@
             </div>
         </div>
 
-        <!-- SLIDE 15: Survey Results (Fix: Overflow Issue) -->
-        <div class="slide" id="slide-14">
-            <h2 class="text-4xl font-black uppercase mb-8 flex items-center gap-4">
-                Survey Analysis <span class="text-sm bg-red-500 text-white px-3 py-1 rounded font-mono">N=21 RESPONDENTS</span>
-            </h2>
-            
-            <div class="grid md:grid-cols-2 gap-6 w-full max-w-7xl h-[75vh] overflow-hidden">
-                <!-- Chart 1: Learning Source -->
-                <div class="bg-zinc-900 p-6 border border-zinc-800 flex flex-col justify-between h-full">
-                    <div>
-                        <h3 class="font-bold text-white mb-2 uppercase text-lg border-b border-zinc-800 pb-2">Q1: Where did you learn?</h3>
-                        <p class="text-zinc-400 text-sm mb-4 leading-relaxed">
-                            This data confirms a major gap in our education system. The vast majority of respondents <strong>(61.9%)</strong> had to teach themselves netiquette through observation. Only <strong>14.3%</strong> learned it formally in school.
-                        </p>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm text-white font-bold mb-1"><span>Self-Taught</span><span>61.9%</span></div>
-                            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-pink-500" style="--percent: 61.9%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm text-zinc-400 mb-1"><span>School</span><span>14.3%</span></div>
-                            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-zinc-600" style="--percent: 14.3%"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chart 2: Perception -->
-                <div class="bg-zinc-900 p-6 border border-zinc-800 flex flex-col justify-between h-full">
-                    <div>
-                        <h3 class="font-bold text-white mb-2 uppercase text-lg border-b border-zinc-800 pb-2">Q2: Is Online Respect Lower?</h3>
-                        <p class="text-zinc-400 text-sm mb-4 leading-relaxed">
-                            The consensus is overwhelming. <strong>85.7%</strong> of respondents feel that people are significantly <em>less</em> respectful online than in person. This validates the "Online Disinhibition Effect" theory.
-                        </p>
-                    </div>
-                    <div class="space-y-4">
-                        <div>
-                            <div class="flex justify-between text-sm text-white font-bold mb-1"><span>Less Respectful Online</span><span>85.7%</span></div>
-                            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-red-500" style="--percent: 85.7%"></div></div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm text-zinc-400 mb-1"><span>Same / More Respectful</span><span>14.3%</span></div>
-                            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-zinc-600" style="--percent: 14.3%"></div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Chart 3: Education (Compact) -->
-                <div class="bg-zinc-900 p-6 border border-zinc-800 md:col-span-2 flex flex-col justify-center h-32">
-                    <h3 class="font-bold text-white mb-2 uppercase text-lg">Conclusion: The Demand for Education</h3>
-                    <div class="flex items-center gap-4">
-                        <p class="text-zinc-400 text-sm flex-1">
-                            <strong>95.2%</strong> believe Netiquette <em>should</em> be taught in schools.
-                        </p>
-                        <div class="w-2/3 h-12 flex relative group">
-                            <div class="h-full bg-lime-400 flex items-center justify-center text-black font-black text-xl bar-fill w-[95.2%]">YES (95.2%)</div>
-                            <div class="h-full bg-red-500 flex-1"></div>
-                        </div>
-                    </div>
-                </div>
+<!-- SLIDE 15: Survey Analysis I (N=104) -->
+<div class="slide" id="slide-14">
+    <h2 class="text-5xl font-black uppercase mb-8 flex items-center gap-4">
+        Survey Analysis I <span class="text-base bg-blue-500 text-white px-3 py-1 rounded font-mono">DEMOGRAPHICS & AWARENESS</span>
+    </h2>
+    <div class="grid md:grid-cols-2 gap-12 h-[65vh] overflow-hidden">
+         <!-- Chart: Awareness -->
+         <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-center">
+            <div class="heading-wrapper mb-6"><div class="h-20 flex items-center border-b border-zinc-800 pb-4"><h3 class="font-bold text-white uppercase text-4xl">Have you heard of 'Netiquette'?</h3></div></div>
+            <div class="flex items-start gap-8">
+                 <div class="pie-chart" style="--color-1: #a3e635; --p-1: 83.7%; --color-2: #ef4444; --p-2: 100%; --color-3: transparent; --p-3: 100%; --color-4: transparent;">
+                    <div class="pie-hole"></div>
+                 </div>
+                 <div class="space-y-2 font-mono text-[1.2rem]">
+                     <div class="flex items-center gap-2"><div class="w-3 h-3 bg-lime-400"></div> Yes (83.7%)</div>
+                     <div class="flex items-center gap-2"><div class="w-3 h-3 bg-red-500"></div> No (16.3%)</div>
+                 </div>
             </div>
+            <p class="text-zinc-400 text-[1.2rem] mt-6 leading-relaxed">
+                The high prevalence (>83%) of "Netiquette" familiarity confirms the concept's assimilation into digital literacy. Yet, this awareness fails to reliably translate into consistent practice, suggesting a gap between conceptual understanding and behavioral implementation during online interactions.
+            </p>
+         </div>
+
+         <!-- Chart: Learning Source -->
+         <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-center">
+            <div class="heading-wrapper mb-6"><div class="h-20 flex items-center border-b border-zinc-800 pb-4"><h3 class="font-bold text-white uppercase text-4xl">Source of Learning</h3></div></div>
+            <div class="flex items-start gap-8">
+                 <div class="pie-chart" style="--color-1: #ec4899; --p-1: 60.6%; --color-2: #22d3ee; --p-2: 77.9%; --color-3: #eab308; --p-3: 93.3%; --color-4: #a8a29e;">
+                    <div class="pie-hole"></div>
+                 </div>
+                 <div class="space-y-2 font-mono text-[1.2rem]">
+                     <div class="flex items-center gap-2"><div class="w-3 h-3 bg-pink-500"></div> Self-Taught (60.6%)</div>
+                     <div class="flex items-center gap-2"><div class="w-3 h-3 bg-cyan-400"></div> School (17.3%)</div>
+                     <div class="flex items-center gap-2"><div class="w-3 h-3 bg-yellow-500"></div> Family (15.4%)</div>
+                     <div class="flex items-center gap-2"><div class="w-3 h-3 bg-stone-400"></div> Online (6.7%)</div>
+                 </div>
+            </div>
+            <p class="text-zinc-400 text-[1.2rem] mt-6 leading-relaxed">
+                The prevalence of self-taught digital learners (60.6%) underscores a deficiency in formal education, resulting in the inconsistent acquisition of online etiquette through organic observation, which subsequently contributes to diverse behavioral norms across various digital communities.
+            </p>
+         </div>
+    </div>
+</div>
+
+<!-- SLIDE 16: Survey Analysis II (N=104) - corrected heading sizes -->
+<div class="slide" id="slide-15">
+  <h2 class="text-5xl font-black uppercase mb-8 flex items-center gap-4">
+    Survey Analysis II
+    <span class="text-base bg-pink-500 text-white px-3 py-1 rounded font-mono">PERCEPTION &amp; EXPERIENCE</span>
+  </h2>
+
+  <div class="grid md:grid-cols-3 gap-12 h-[65vh] overflow-hidden">
+    <!-- BOX 1: Importance (3-slice pie, legend BELOW) -->
+    <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-between">
+      <div>
+        <div class="h-20 flex items-center border-b border-zinc-800 pb-4 mb-4">
+          <h3 class="font-bold text-white uppercase text-4xl leading-tight">Importance of Netiquette?</h3>
         </div>
 
-        <!-- SLIDE 16: Conclusion (Redesigned) -->
-        <div class="slide" id="slide-15">
+        <div class="flex flex-col items-center gap-6">
+          <div class="w-48 h-48 rounded-full relative" role="img" aria-label="Pie chart: Very Important 72.1%, Neutral 19.2%, Not Important 8.7%"
+               style="background: conic-gradient(#06b6d4 0 72.1%, #ef4444 72.1% 91.3%, #f59e0b 91.3% 100%);">
+            <span style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#fff; font-size:12px; pointer-events:none;"></span>
+          </div>
+
+          <div class="w-full max-w-[260px] text-center">
+            <div class="flex items-center justify-center gap-3 mb-2">
+              <div class="w-3 h-3 bg-cyan-400 rounded-sm"></div>
+              <div class="text-[1rem] font-mono text-white">Very Important <span class="text-zinc-400"> (72.1%)</span></div>
+            </div>
+            <div class="flex items-center justify-center gap-3 mb-2">
+              <div class="w-3 h-3 bg-red-500 rounded-sm"></div>
+              <div class="text-[1rem] font-mono text-white">Neutral <span class="text-zinc-400"> (19.2%)</span></div>
+            </div>
+            <div class="flex items-center justify-center gap-3">
+              <div class="w-3 h-3 bg-yellow-500 rounded-sm"></div>
+              <div class="text-[1rem] font-mono text-white">Not Important <span class="text-zinc-400"> (8.7%)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-zinc-400 text-[1.05rem] mt-4 leading-relaxed">
+        Users overwhelmingly value order — respondents largely consider etiquette important in digital spaces, with a clear majority marking it "Very Important."
+      </p>
+    </div>
+
+    <!-- BOX 2: Encountered Rudeness? (solid circle, wavy curved separator) -->
+    <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-start">
+      <div>
+        <div class="h-20 flex items-center border-b border-zinc-800 pb-4 mb-4">
+          <h3 class="font-bold text-white uppercase text-4xl leading-tight">Encountered Rudeness?</h3>
+        </div>
+
+        <div class="flex flex-col items-center gap-10">
+          <svg width="192" height="192" viewBox="0 0 240 240" role="img" aria-label="Yes 76.9% (red) No 23.1% (green)">
+  <defs>
+    <clipPath id="circleClipScaled2">
+      <circle cx="120" cy="120" r="120"></circle>
+    </clipPath>
+
+    <!-- Wavy cut, scaled larger -->
+    <path id="wavyScaled2"
+      d="M0,82 
+         C50,50 190,130 240,100 
+         L240,240 
+         L0,240 Z">
+    </path>
+  </defs>
+
+  <!-- bottom red -->
+  <rect width="260" height="260" fill="#16a34a" clip-path="url(#circleClipScaled2)"></rect>
+
+  <!-- top green wave -->
+  <g clip-path="url(#circleClipScaled2)">
+    <use href="#wavyScaled2" fill="#ef4444"></use>
+  </g>
+
+  </text>
+</svg>
+          <div class="flex gap-10 text-[1rem] font-mono">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 bg-red-500 rounded-sm"></span><span class="text-zinc-400">YES (76.9%)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 bg-green-500 rounded-sm"></span><span class="text-zinc-400">NO (23.1%)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-zinc-400 text-[1.05rem] mt-8 leading-relaxed">
+        <br></br>
+        A toxic environment is common — many respondents report encountering rudeness or trolling on a regular basis, often making interactions feel increasingly draining
+
+      </p>
+    </div>
+
+    <!-- BOX 3: Most Urgent Need? (bars - now 5 items) -->
+    <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-start">
+      <div>
+        <div class="h-20 flex items-center border-b border-zinc-800 pb-4 mb-4">
+          <h3 class="font-bold text-white uppercase text-4xl leading-tight">Most Urgent Need?</h3>
+        </div>
+
+        <div class="space-y-4 mt-4">
+          <div>
+            <div class="flex justify-between text-[1rem] text-white font-bold mb-1"><span>Social Media</span><span>61.5%</span></div>
+            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-red-500" style="--percent:61.5%; width:61.5%"></div></div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-[1rem] text-zinc-400 mb-1"><span>Gaming</span><span>15.4%</span></div>
+            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-purple-500" style="--percent:15.4%; width:15.4%"></div></div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-[1rem] text-zinc-400 mb-1"><span>Messaging</span><span>12.5%</span></div>
+            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-blue-500" style="--percent:12.5%; width:12.5%"></div></div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-[1rem] text-zinc-400 mb-1"><span>Forums / Communities</span><span>7.7%</span></div>
+            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-lime-400" style="--percent:7.7%; width:7.7%"></div></div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-[1rem] text-zinc-400 mb-1"><span>Professional (Email/LinkedIn)</span><span>2.9%</span></div>
+            <div class="w-full bg-zinc-800 h-4"><div class="bar-fill h-full bg-yellow-500" style="--percent:2.9%; width:2.9%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-zinc-400 text-[1.05rem] mt-12 leading-relaxed">
+        Social media stands out as the platform with the most urgent need for netiquette interventions, followed by gaming and messaging spaces.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- SLIDE 17: Survey Analysis III (N=104) - MATCHED TO SLIDE 16 + ANIMATED BARS -->
+<div class="slide" id="slide-16">
+  <h2 class="text-5xl font-black uppercase mb-8 flex items-center gap-4">
+    Survey Analysis III
+    <span class="text-base bg-lime-500 text-black px-3 py-1 rounded font-mono">BEHAVIOR &amp; FUTURE</span>
+  </h2>
+
+  <div class="grid md:grid-cols-2 gap-12 h-[65vh] overflow-hidden">
+    
+    <!-- BOX 1: Violations -->
+    <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-start">
+      <div>
+        <div class="h-20 flex items-center border-b border-zinc-800 pb-4 mb-4">
+          <h3 class="font-bold text-white uppercase text-4xl leading-tight">Biggest Violation?</h3>
+        </div>
+
+        <div class="space-y-6">
+          <div>
+            <div class="flex justify-between text-sm text-white font-bold mb-1">
+              <span>Disrespect / Insults</span><span>44.2%</span>
+            </div>
+            <div class="w-full bg-zinc-800 h-6">
+              <!-- use --percent variable so CSS .active .bar-fill applies -->
+              <div class="bar-fill h-full bg-red-500" style="--percent:44.2%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-sm text-zinc-400 mb-1">
+              <span>Misinformation</span><span>26.9%</span>
+            </div>
+            <div class="w-full bg-zinc-800 h-6">
+              <div class="bar-fill h-full bg-yellow-500" style="--percent:26.9%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-sm text-zinc-400 mb-1">
+              <span>Oversharing</span><span>11.5%</span>
+            </div>
+            <div class="w-full bg-zinc-800 h-6">
+              <div class="bar-fill h-full bg-blue-500" style="--percent:11.5%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-zinc-400 text-[1.05rem] mt-10 leading-relaxed">
+        Aggression and the spread of fake news continue to dominate users’ online concerns, shaping much of their negative digital experiences. Nearly half of all respondents consider direct insults to be the most frequent form of misconduct, highlighting how common hostile interactions still are. These patterns reflect a strong public desire for better emotional regulation and healthier communication online.
+      </p>
+    </div>
+
+    <!-- BOX 2: Should It Be Taught -->
+    <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-start">
+      <div>
+        <div class="h-20 flex items-center border-b border-zinc-800 pb-4 mb-4">
+          <h3 class="font-bold text-white uppercase text-4xl leading-tight">Should it be taught in schools?</h3>
+        </div>
+
+        <div class="flex justify-center items-center h-40">
+          <div class="w-full h-20 flex items-center shadow-[0_0_20px_rgba(163,230,53,0.2)]">
+            <!-- convert to --percent so CSS animates the bar -->
+            <div class="h-full bg-lime-400 flex items-center justify-center text-black font-black text-4xl bar-fill" style="--percent:95.2%;">
+              95.2%
+            </div>
+            <div class="h-full bg-red-500 flex-grow"></div>
+            
+        </div>
+        </div>
+        
+      <div>
+          <div class="flex gap-10 text-[1rem] font-mono justify-center">
+            <div class="flex items-center gap-2"><span class="w-3 h-3 bg-lime-500 rounded-sm"></span><span class="text-zinc-400">YES (76.9%)</span></div>
+            <div class="flex items-center gap-2"><span class="w-3 h-3 bg-red-500 rounded-sm"></span><span class="text-zinc-400">NO (23.1%)</span></div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-zinc-400 text-[1.05rem] mt-10 leading-relaxed">
+        An overwhelming 95% of respondents believe that netiquette should be included as a regular component of the school curriculum, signalling a clear need for structured guidance on appropriate online behaviour. This shared opinion highlights awareness about digital responsibilities and strengthens the demand for schools to introduce instruction that helps students interact responsibly in online spaces.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+        <!-- SLIDE 18: Survey Analysis IV (N=104) - MATCHED TO SLIDES 15-17 -->
+<div class="slide" id="slide-17">
+  <h2 class="text-5xl font-black uppercase mb-8 flex items-center gap-4">
+    Survey Analysis IV
+    <span class="text-base bg-indigo-500 text-white px-3 py-1 rounded font-mono">SELF-REFLECTION</span>
+  </h2>
+
+  <div class="grid md:grid-cols-2 gap-12 h-[65vh] overflow-hidden">
+
+    <!-- BOX 1: Do you follow netiquette? -->
+    <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-between">
+      <div>
+        <div class="h-20 flex items-center border-b border-zinc-800 pb-4 mb-4">
+          <h3 class="font-bold text-white uppercase text-4xl leading-tight">Do you follow netiquette?</h3>
+        </div>
+
+        <div class="space-y-6">
+          <div>
+            <div class="flex justify-between text-sm text-white font-bold mb-1">
+              <span>Often</span><span>54.8%</span>
+            </div>
+            <div class="w-full bg-zinc-800 h-4">
+              <div class="bar-fill h-full bg-blue-500" style="--percent:54.8%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-sm text-zinc-400 mb-1">
+              <span>Always</span><span>32.7%</span>
+            </div>
+            <div class="w-full bg-zinc-800 h-4">
+              <div class="bar-fill h-full bg-green-500" style="--percent:32.7%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-sm text-zinc-400 mb-1">
+              <span>Sometimes</span><span>11.5%</span>
+            </div>
+            <div class="w-full bg-zinc-800 h-4">
+              <div class="bar-fill h-full bg-yellow-500" style="--percent:11.5%"></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="flex justify-between text-sm text-zinc-400 mb-1">
+              <span>Not at all</span><span>7.7%</span>
+            </div>
+            <div class="w-full bg-zinc-800 h-4">
+              <div class="bar-fill h-full bg-red-500" style="--percent:7.7%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-zinc-400 text-[1.05rem] mt-4 leading-relaxed">
+        Most users believe they act as responsible “good citizens” online, with 87.5% saying they follow netiquette Always or Often. Yet this self-perception contrasts with the 76.9% who say they’ve encountered rudeness, highlighting a familiar pattern where people view their own behavior kindly while assuming others are the real problem.
+      </p>
+    </div>
+
+    <!-- BOX 2: Knowledge Rating -->
+    <div class="bg-zinc-900 p-8 border border-zinc-800 flex flex-col h-full justify-start">
+      <div>
+        <div class="h-20 flex items-center border-b border-zinc-800 pb-4 mb-14">
+          <h3 class="font-bold text-white uppercase text-4xl leading-tight">Self-Knowledge Rating (1–5)</h3>
+        </div>
+
+        <div class="flex items-end justify-center gap-6 h-48 pb-4">
+          <div class="w-16 bg-zinc-800 h-[40%] relative">
+            <div class="absolute -top-6 w-full text-center text-xs">18%</div>
+            <div class="absolute bottom-[-25px] w-full text-center text-xs">Rated 1</div>
+            <div class="h-full bg-blue-500"></div>
+          </div>
+
+          <div class="w-16 bg-zinc-800 h-[64%] relative">
+            <div class="absolute -top-6 w-full text-center text-xs">18%</div>
+            <div class="absolute bottom-[-25px] w-full text-center text-xs">Rated 2</div>
+            <div class="h-full bg-red-500"></div>
+          </div>
+
+          <div class="w-16 bg-zinc-800 h-[110%] relative">
+            <div class="absolute -top-6 w-full text-center text-xs font-bold text-white">40%</div>
+            <div class="absolute bottom-[-25px] w-full text-center text-xs">Rated 3</div>
+            <div class="h-full bg-yellow-500"></div>
+          </div>
+
+          <div class="w-16 bg-zinc-800 h-[90%] relative">
+            <div class="absolute -top-6 w-full text-center text-xs">29%</div>
+            <div class="absolute bottom-[-25px] w-full text-center text-xs">Rated 4</div>
+            <div class="h-full bg-green-500"></div>
+          </div>
+
+          <div class="w-16 bg-zinc-800 h-[65%] relative">
+            <div class="absolute -top-6 w-full text-center text-xs">29%</div>
+            <div class="absolute bottom-[-25px] w-full text-center text-xs">Rated 5</div>
+            <div class="h-full bg-lime-400"></div>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="text-zinc-400 text-[1.05rem] mt-14 leading-relaxed text-center">
+        Respondents generally rate themselves as “Moderately Aware” (3/5), reflecting a level of digital understanding built through personal experience rather than formal instruction. Their familiarity gives them enough confidence to navigate online spaces effectively, while still acknowledging that their knowledge doesn’t quite reach the depth expected of true experts.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+        <!-- SLIDE 19: Conclusion -->
+        <div class="slide" id="slide-18">
             <div class="flex flex-col justify-center items-center h-full w-full">
                 <div class="border-4 border-white p-16 max-w-6xl relative text-center mx-auto">
                     <div class="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-[#111] px-6">
@@ -880,16 +1425,16 @@
                     </div>
 
                     <div class="mt-12 w-full max-w-4xl mx-auto">
-                        <div class="bg-lime-400 text-black text-3xl font-black px-16 py-6 uppercase tracking-widest shadow-[12px_12px_0px_#fff] block w-full text-center hover:bg-white transition-colors cursor-pointer transform hover:-translate-y-1">
+                        <span class="bg-lime-400 text-black text-3xl font-black px-16 py-6 uppercase tracking-widest hover:bg-white transition-colors cursor-pointer shadow-[12px_12px_0px_#fff] block w-full transform hover:-translate-y-1 text-center">
                             Remember The Human
-                        </div>
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- SLIDE 17: Sources (Fix: Redesigned with Boxes) -->
-        <div class="slide" id="slide-16">
+        <!-- SLIDE 20: Sources -->
+        <div class="slide" id="slide-19">
             <h2 class="text-4xl font-black uppercase mb-8">Sources_</h2>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 font-mono text-sm">
                 
@@ -926,7 +1471,7 @@
                 <div class="bg-zinc-900 border border-zinc-700 p-6 hover:border-white transition-colors group">
                     <div class="text-white text-xs mb-2 opacity-50 group-hover:opacity-100">[06] PRIMARY DATA</div>
                     <p class="text-white font-bold mb-2">Primary Research (2025)</p>
-                    <p class="text-zinc-400 text-xs">Group Survey on Netiquette Awareness (N=21). Conducted via Google Forms.</p>
+                    <p class="text-zinc-400 text-xs">Group Survey on Netiquette Awareness (N=104). Conducted via Google Forms.</p>
                 </div>
 
             </div>
@@ -1001,6 +1546,4 @@
         });
     </script>
 </body>
-
 </html>
-
